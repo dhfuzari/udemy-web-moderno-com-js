@@ -1,0 +1,63 @@
+<style>
+  ul[closed="false"] {
+    display: block;
+  }
+
+  ul[closed="true"] {
+    display: none;
+  }
+</style>
+
+<h1>Projeto</h1>
+
+<ul class="tree">
+  <li>
+    <a href="#" main-list>Backend</a>
+    <ul closed="false">
+      <li>
+        <a href="#" main-list>App</a>
+        <ul closed="false">
+          <li>produto.js</li>
+          <li>usuario.js</li>
+          <li>venda.js</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#" main-list>Config</a>
+        <ul closed="false">
+          <li>banco.js</li>
+          <li>rotas.js</li>
+          <li>servidor.js</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <a href="#" main-list>Frontend</a>
+    <ul closed="false">
+      <li>
+        <a href="#" main-list>Public</a>
+        <ul closed="false">
+          <li>app.js</li>
+          <li>app.css</li>
+          <li>index.html</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<link rel="stylesheet" href="http://files.cod3r.com.br/curso-web/tree.css">
+
+<script>
+  const mainListItens = document.querySelectorAll('[main-list]');
+  mainListItens.forEach(link => {
+    const nextSiblingUl = link.nextElementSibling;
+    link.onclick = event => {
+      event.preventDefault();
+      const currentState = nextSiblingUl.getAttribute('closed');
+      currentState === 'false' ?
+        nextSiblingUl.setAttribute('closed', 'true') : nextSiblingUl.setAttribute('closed', 'false')
+    }
+  })
+</script>

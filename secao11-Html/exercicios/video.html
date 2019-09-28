@@ -1,0 +1,65 @@
+<style>
+  .progresso {
+    width: 800px;
+    height: 20px;
+    border: 1px solid #c4c4c4;
+  }
+
+  .progresso div {
+    height: 100%;
+    width: 0;
+    background: red;
+  }
+</style>
+
+<h1>Vídeo</h1>
+
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload">
+  <source src="/exercicios/media/video.mp4" type="video/mp4" />
+  Seu browser não suporta a tag vídeo
+</video>
+
+<div wm-progresso class="progresso">
+  <div></div>
+</div>
+
+<div>
+  <button control-buttons wm-play="meuVideo">Play</button>
+  <button control-buttons wm-pause="meuVideo">Pause</button>
+</div>
+
+<script>
+  const controlButtons = document.querySelectorAll('[control-buttons]')
+  const progressBar = document.querySelector('[wm-progresso] div')
+  const video = document.getElementById('meuVideo');
+  let timer = null;
+
+  controlButtons.forEach((button) => {
+    button.onclick = () => {
+      if (button.hasAttribute('wm-play')) {
+        const videoId = button.getAttribute('wm-play')
+        document.getElementById(videoId).play();
+      } else if (button.hasAttribute('wm-pause')) {
+        const videoId = button.getAttribute('wm-pause')
+        document.getElementById(videoId).pause();
+      }
+    }
+  })
+
+  function uploadProgressBar() {
+    timer = setInterval(() => {
+      progressBar.style.width = `${video.currentTime * 100 / video.duration}%`;
+    }, 100)
+  }
+
+
+  video.onplay = function () {
+    console.log(video.currentTime)
+    uploadProgressBar();
+  };
+
+  video.onpause = function () {
+    console.log(video.currentTime)
+    clearInterval(timer);
+  }
+</script>

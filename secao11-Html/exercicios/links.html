@@ -1,0 +1,37 @@
+<style>
+  #noticia {
+    position: absolute;
+    top: 2000px;
+  }
+</style>
+
+<h1 id="inicio">Links</h1>
+
+<!-- URL absoluta -->
+<a href="http://www.google.com.br">Google 1</a>
+<a href="http://www.google.com.br" target="_blank">Google 2</a>
+
+<br />
+<br />
+
+<!-- URL relativa -->
+<!-- tenta simplesmente acessar o index.html da pasta atual -->
+<a href="index.html">Voltar 1</a>
+<!-- tenta acessar o index.html da raiz da sua aplicação independentemente de onde você esteja -->
+<a href="/index.html">Voltar 2</a>
+<!-- volta uma pasta anteriror e tenta acessar o index.html nessa pasta -->
+<a href="../index.html">Voltar 3</a>
+
+<br />
+<br />
+
+<!-- outros tipos de links -->
+<!-- mailto -->
+<a href="mailto:email@emopresa.com.br">Entre em contato</a>
+<!-- ancoras -->
+<a href="#noticia">Ir para noticia</a>
+<div id="noticia">
+  <h1>Noticia Buemba!</h1>
+  <p>Não era nada</p>
+  <a href="#inicio">Voltar para o início</a>
+</div>

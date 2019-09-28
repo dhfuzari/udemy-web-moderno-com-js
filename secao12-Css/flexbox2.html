@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox #02</title>
+    <style>
+        div {
+            border: 5px solid dodgerblue;
+            font-size: 40px;
+        }
+        .flex-container {
+            display: flex;
+            width: 600px;
+            height: 300px;
+        }
+        .flex-container div {
+            box-sizing: border-box;
+            width: 100px;
+            
+            /* Define o quanto cada elemento irá crescer para ocupar o espaço restante 
+            no seu contexto atual */
+            flex-grow: 0;
+            flex-grow: 1;
+        }
+        .flex-container div:nth-child(3) {
+            background-color: indianred;
+            order: 1;
+            order: -1;
+            order: 0; /* default value */
+            align-self: flex-start;
+            align-self: flex-end;
+            align-self: center;
+            align-self: stretch; /* default value */
+        }
+
+        .flex-container div:nth-child(1) {
+            flex-grow: 2;
+        }
+
+        .flex-container {
+            width: 300px;
+            flex-shrink: 1;
+        }
+
+        .flex-container div:nth-child(1) {
+            /* Define o quanto cada elemento irá encolher para se ajustar ao espaço restante 
+            no seu contexto atual */
+            flex-shrink: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-container">
+        <div class="tag nolabel">1</div>
+        <div class="tag nolabel">2</div>
+        <div class="tag nolabel">3</div>
+        <div class="tag nolabel">4</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "funcionarios",
+  "version": "1.0.0",
+  "description": "Controle de funcionarios",
+  "main": "funcionarios.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "nodemon",
+    "test": "test"
+  },
+  "author": "Daniel Henrique Fuzari <dhfuzari@gmail.com> (https://www.dhfuzari.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}

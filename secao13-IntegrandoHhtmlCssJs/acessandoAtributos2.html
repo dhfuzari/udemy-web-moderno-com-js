@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <label for="compras">Compras</label>
+        <ul id="compras" destino='escritorio' data-urgencia="5">
+            <li>Café</li>
+            <li>Água</li>
+            <li>Copo Descartável</li>
+        </ul>
+    </div>
+    <script>
+        const lista = document.querySelector('div ul[destino="escritorio"]');
+        console.log('Elemento "ul" ................... ');
+        console.log('childNodes', lista.childNodes);
+
+        console.log('destino: ', lista.destino); // Não encontrar por ser um atributo personalizado
+        console.log('getAttribute destino: ', lista.getAttribute('destino')); // Encontra o atributo
+
+        lista.setAttribute('destino', 'empresa');
+        console.log('setAttribute destino: ', lista.getAttribute('destino'));
+        console.log('hasAttibute destino: ', lista.hasAttribute('destino'));
+
+        lista.setAttribute('data-status', 'aberto');
+        lista.removeAttribute('destino');
+
+        console.log(lista.dataset);
+        lista.dataset.urgencia = 4;
+        console.log(lista.getAttribute('data-urgencia'));
+
+
+        // Cuidado:
+        console.log('Elemento label .................. ');
+        const label = document.querySelector('label');
+        console.log(label.for); // for é uma palavra reservada e não pode ser usado nesse caso(como propriedade de um objeto/elemento)
+        console.log(label.htmlFor);
+        console.log(label.getAttribute('for'));
+    </script>
+</body>
+
+</html>

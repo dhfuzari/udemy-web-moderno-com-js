@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <section>
+        <h2>Subtítulo</h2>
+        <div>
+            <p>Texto Inicial</p>
+        </div>
+    </section>
+
+    <script>
+        const div = document.querySelector('div');
+        div.innerHTML = 'Texto alterado 1';
+        div.setAttribute('id', 'div_Texto_Alterado');
+        console.log(div.outerHTML);
+        div.outerHTML = '<h3>Subtitulo h3</h3>';
+
+        const div2 = document.createElement('div');
+        div2.innerHTML = '<p>Texto incluido no documento</p>'
+        document.querySelector('section').appendChild(div2);
+
+        div2.insertAdjacentHTML('beforebegin', '<p>Antes do inicio</p>');
+        div2.insertAdjacentHTML('afterbegin', '<p>Depois do início</p>');
+        div2.insertAdjacentHTML('beforeend', '<p>Antes do fim</p>');
+        div2.insertAdjacentHTML('afterend', '<p>Depois do fim</p>');
+
+        // Apenas o texto
+        console.log(div2.innerText);
+    </script>
+</body>
+
+</html>
